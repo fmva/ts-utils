@@ -14,7 +14,7 @@ This project was designed for TypeScript studying and collects types which could
 * [`ValueOf`](#value-of)
 
 ## Filters
-* ['PropertyPathTypeOf'](#property-path-type-of)
+* [`PropertyPathTypeOf`](#property-path-type-of)
 
 ## Mappers
 
