@@ -52,7 +52,7 @@ const numberDictionary: KeyValuePairs<number> = {
  
 ```
 
-###SnakeToCamel
+### `SnakeToCamel`
 Convert string from snake to camel
 
 ```ts
