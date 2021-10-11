@@ -8,14 +8,14 @@ This project was designed for TypeScript studying and collects types which could
 
 ## Helpers
 
-* [`AnyObject`](#any-object)
-* [`KeyValuePairs`](#key-values-pairs)
-* [`SnakeToCamel`](#snake-to-camel)
-* [`ValueOf`](#value-of)
+* [`AnyObject`](#anyobject)
+* [`KeyValuePairs`](#keyvaluespairs)
+* [`SnakeToCamel`](#snaketocamel)
+* [`ValueOf`](#valueof)
 
 ## Filters
 
-* [`PropertyPathTypeOf`](#property-path-type-of)
+* [`PropertyPathTypeOf`](#propertypathtypeof)
 
 ## Mappers
 
