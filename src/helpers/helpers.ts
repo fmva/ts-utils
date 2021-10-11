@@ -1,12 +1,15 @@
 /**
  * AnyObject
- * @desc model an object type
+ * @desc represent an object type
  */
-export type AnyObject = Record<string | number | symbol, unknown>;
+export type AnyObject<TValues = unknown> = Record<
+  string | number | symbol,
+  TValues
+>;
 
 /**
  * KeyValuePairs
- * @desc Get an obvious object where properties are string
+ * @desc represent an obvious object where properties are string
  */
 export type KeyValuePairs<TValue = string> = Record<string, TValue>;
 
@@ -21,6 +24,6 @@ export type SnakeToCamel<S extends string> =
 
 /**
  * ValueOf
- * @desc get all types from values
+ * @desc extract all types from structure
  */
 export type ValueOf<T> = T[keyof T];

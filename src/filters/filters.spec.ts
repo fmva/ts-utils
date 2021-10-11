@@ -1,12 +1,12 @@
 import { Assert, Equal } from '../tests/utils';
-import { TypeOfPropertyPath } from './filters';
+import { PropertyPathTypeOf } from './filters';
 
 /*
  * TypeOfPropertyPath
  */
 type Owner = {
   name: string;
-  dateBuying: number;
+  buyingDate: number;
 };
 
 type Menu = {
@@ -22,9 +22,9 @@ type Menu = {
 };
 
 export type TypeOfPropertyPathCases = [
-  Assert<Equal<TypeOfPropertyPath<Menu, 'title'>, string>>,
-  Assert<Equal<TypeOfPropertyPath<Menu, 'restaurant.street'>, string>>,
-  Assert<Equal<TypeOfPropertyPath<Menu, 'restaurant.office'>, number>>,
-  Assert<Equal<TypeOfPropertyPath<Menu, 'restaurant.restaurantOwner'>, never>>,
-  Assert<Equal<TypeOfPropertyPath<Menu, 'restaurant.owner'>, Owner>>,
+  Assert<Equal<PropertyPathTypeOf<Menu, 'title'>, string>>,
+  Assert<Equal<PropertyPathTypeOf<Menu, 'restaurant.street'>, string>>,
+  Assert<Equal<PropertyPathTypeOf<Menu, 'restaurant.office'>, number>>,
+  Assert<Equal<PropertyPathTypeOf<Menu, 'restaurant.restaurantOwner'>, never>>,
+  Assert<Equal<PropertyPathTypeOf<Menu, 'restaurant.owner'>, Owner>>,
 ];
