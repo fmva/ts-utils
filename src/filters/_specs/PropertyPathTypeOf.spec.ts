@@ -1,9 +1,6 @@
-import { Assert, Equal } from '../tests/utils';
-import { PropertyPathTypeOf } from './filters';
+import { Assert, Equal } from '../../tests/utils';
+import { PropertyPathTypeOf } from '../filters';
 
-/*
- * TypeOfPropertyPath
- */
 type Owner = {
   name: string;
   buyingDate: number;

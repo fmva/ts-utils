@@ -1,9 +1,6 @@
-import { Assert, Equal } from '../tests/utils';
-import { DeepSnakeToCamel, PropertyPrefix, PropertyPostfix } from './mappers';
+import { Assert, Equal } from '../../tests/utils';
+import { DeepSnakeToCamel } from '../mappers';
 
-/**
- * DeepSnakeToCamel
- */
 type SnakeType = {
   start_end: string;
   start_middle_end: number;
@@ -44,49 +41,4 @@ export type DeepObjectSnakeToCamelCases = [
       { nestedArray: CamelType[] }
     >
   >,
-];
-
-/**
- * PropertyPrefix
- */
-
-type Products = {
-  fish: string;
-  meat: string;
-  bread: string;
-};
-
-type PackedProducts = {
-  packedFish: string;
-  packedMeat: string;
-  packedBread: string;
-};
-
-export type PropertyPrefixCases = [
-  Assert<
-    Equal<PropertyPrefix<{ foo: string }, 'prefix'>, { prefixFoo: string }>
-  >,
-
-  Assert<Equal<PropertyPrefix<Products, 'packed'>, PackedProducts>>,
-];
-
-/*
-  PropertyPostfix
- */
-
-type Cars = {
-  sedan: boolean;
-  hatchback: boolean;
-};
-
-type CarsSold = {
-  sedanSold: boolean;
-  hatchbackSold: boolean;
-};
-
-export type PropertyPostfixCases = [
-  Assert<
-    Equal<PropertyPostfix<{ foo: string }, 'Postfix'>, { fooPostfix: string }>
-  >,
-  Assert<Equal<PropertyPostfix<Cars, 'Sold'>, CarsSold>>,
 ];
