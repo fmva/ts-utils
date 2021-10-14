@@ -24,7 +24,7 @@ export type DeepSnakeToCamel<T> = T extends any[]
 
 /**
  * PropertyPostfix
- * @desc add postfix to an original object type
+ * @desc add postfix to properties of an original object type
  */
 export type PropertyPostfix<
   TObject extends AnyObject,
@@ -35,7 +35,7 @@ export type PropertyPostfix<
 
 /**
  * PropertyPrefix
- * @desc add prefix to an original object type
+ * @desc add prefix to properties of an original object type
  */
 export type PropertyPrefix<TObject extends AnyObject, prefix extends string> = {
   [K in keyof TObject as `${prefix}${Capitalize<string & K>}`]: TObject[K];
