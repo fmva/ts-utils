@@ -1,4 +1,4 @@
-import { Assert, Equal } from '../../tests/utils';
+import { Assert, Equal } from '../../tests-utils/utils';
 import { DeepSnakeToCamel } from '../mappers';
 
 type SnakeType = {

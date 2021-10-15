@@ -1,4 +1,4 @@
-import { Assert, Equal } from '../../tests/utils';
+import { Assert, Equal } from '../../tests-utils/utils';
 import { PropertyPathTypeOf } from '../filters';
 
 type Owner = {
