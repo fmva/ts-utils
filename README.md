@@ -214,7 +214,7 @@ const cars: PropertyPostfix<Cars, 'Sold'> = {
 };
 ```
 
-### DeepRequired<T>
+### `DeepRequired<T>`
 traverse object deeply and set all properties to required
 
 ```ts
