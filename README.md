@@ -7,9 +7,9 @@ This project was designed for TypeScript studying and collects types which could
 
 # ToDo
 
-- PartialProperty
-- DeepOptional
-
+- PartialProperty<T, Path>
+- RequiredProperty<T, Path>
+- ObjectPaths<T>
 
 # Table of Contents
 
@@ -30,6 +30,7 @@ This project was designed for TypeScript studying and collects types which could
 - [`PropertyPostfix<TObject, postfix>`](#propertypostfixtobject-postfix)
 - [`PropertyPrefix<TObject, prefix>`](#propertyprefixtobject-prefix)
 - [`DeepRequired<T>`](#deeprequiredt)
+- [`DeepPartial<T>`](#deeppartialt)
 
 ## Helpers
 
@@ -233,7 +234,7 @@ type Foo = {
   };
 };
 
-// all properties should be required
+// all properties should are required
 const a: DeepRequired<Foo> = {
   a: '1',
   b: true,
@@ -249,5 +250,35 @@ const a: DeepRequired<Foo> = {
     },
   },
 };
+```
 
+### `DeepPartial<T>`
+traverse object deeply and set all properties to optional
+
+```ts
+type Foo = {
+  a?: string;
+  b?: boolean;
+  c: number;
+  nested: {
+    a: string;
+    b: boolean;
+    c: number;
+    nested: {
+      a: string;
+      b: boolean;
+      c: number;
+    };
+  };
+};
+
+// all properties are optional
+const a: DeepPartial<Foo> = {
+  b: true,
+  c: 1,
+  nested: {
+    a: '1',
+    b: true,
+  },
+};
 ```

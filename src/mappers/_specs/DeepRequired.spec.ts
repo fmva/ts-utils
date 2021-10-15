@@ -64,7 +64,6 @@ export type DeepRequiredCases = [
   Assert<Equal<DeepRequired<Boo>, DeepRequiredBoo>>,
   Assert<Equal<DeepRequired<{ a?: string }>, { a: string }>>,
   Assert<Equal<DeepRequired<Coo>, DeepRequiredCoo>>,
-  Assert<Equal<DeepRequired<Coo>, DeepRequiredCoo>>,
   Assert<Equal<DeepRequired<undefined>, undefined>>,
   Assert<Equal<DeepRequired<string>, string>>,
   Assert<Equal<DeepRequired<null>, null>>,

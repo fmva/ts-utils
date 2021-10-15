@@ -52,3 +52,15 @@ export type DeepRequired<T> = T extends Array<infer U>
   : T extends object
   ? { [K in keyof T]-?: DeepRequired<T[K]> }
   : T;
+
+/**
+ * DeepPartial
+ * @desc traverse object deeply and set all properties to optional
+ */
+export type DeepPartial<T> = T extends Array<infer U>
+  ? U extends object
+    ? Array<DeepPartial<U>>
+    : DeepPartial<U>
+  : T extends object
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
+  : T;
