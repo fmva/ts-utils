@@ -16,20 +16,20 @@ This project was designed for TypeScript studying and collects types which could
 ## Helpers
 
 - [`AnyObject<TValues>`](#anyobjecttvalues)
-- [`KeyValuePairs`](#keyvaluepairs)
-- [`SnakeToCamel`](#snaketocamel)
-- [`ValueOf`](#valueof)
+- [`KeyValuePairs<TValue>`](#keyvaluepairstvalue)
+- [`SnakeToCamel<S>`](#snaketocamels)
+- [`ValueOf<T>`](#valueoft)
 
 ## Filters
 
-- [`PropertyPathTypeOf`](#propertypathtypeof)
+- [`PropertyPathTypeOf<T, Path>`](#propertypathtypeoft-path)
 
 ## Mappers
 
-- [`DeepSnakeToCamel`](#deepsnaketocamel)
-- [`PropertyPostfix`](#propertypostfix)
-- [`PropertyPrefix`](#propertypostfix)
-- [`DeepRequired`](#deeprequired)
+- [`DeepSnakeToCamel<T>`](#deepsnaketocamelt)
+- [`PropertyPostfix<TObject, postfix>`](#propertypostfixtobject-postfix)
+- [`PropertyPrefix<TObject, prefix>`](#propertyprefixtobject-prefix)
+- [`DeepRequired<T>`](#deeprequiredt)
 
 ## Helpers
 
@@ -48,7 +48,7 @@ const foo: AnyObject = {
 };
 ```
 
-### `KeyValuePairs`
+### `KeyValuePairs<TValue>`
 
 Type represents an obvious object where properties are string
 
@@ -66,7 +66,7 @@ const numberDictionary: KeyValuePairs<number> = {
 };
 ```
 
-### `SnakeToCamel`
+### `SnakeToCamel<S>`
 
 Convert string from snake to camel
 
@@ -76,7 +76,7 @@ const b: SnakeToCamel<'start_middle_end'> = 'startMiddleEnd';
 const c: SnakeToCamel<'start'> = 'start';
 ```
 
-### `ValueOf`
+### `ValueOf<T>`
 
 extract all types from structure
 
@@ -104,7 +104,7 @@ const c: ValueOf<Doo> = '1'; // string
 
 ## Filters
 
-### `PropertyPathTypeOf`
+### `PropertyPathTypeOf<T, Path>`
 
 extract type from a property by string chain format
 
@@ -139,7 +139,7 @@ const owner: PropertyPathTypeOf<Menu, 'restaurant.owner'> = {
 
 ## Mappers
 
-### `DeepSnakeToCamel`
+### `DeepSnakeToCamel<T>`
 
 Deep converting properties of an object from snake to camel format
 
@@ -175,7 +175,7 @@ const deepCamelCase: DeepSnakeToCamel<DeepSnakeType> = {
 };
 ```
 
-## PropertyPostfix
+## PropertyPostfix<TObject, postfix>
 
 add postfix to properties of an original object type
 
@@ -195,7 +195,7 @@ const product: PropertyPrefix<Products, 'packed'> = {
 };
 ```
 
-## PropertyPrefix
+## PropertyPrefix<TObject, prefix>
 
 add prefix to properties of an original object type
 
@@ -213,7 +213,7 @@ const cars: PropertyPostfix<Cars, 'Sold'> = {
 };
 ```
 
-### DeepRequired
+### DeepRequired<T>
 traverse object deeply and set all properties to required
 
 ```ts
