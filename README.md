@@ -234,7 +234,7 @@ type Foo = {
   };
 };
 
-// all properties should are required
+// all properties are required
 const a: DeepRequired<Foo> = {
   a: '1',
   b: true,
