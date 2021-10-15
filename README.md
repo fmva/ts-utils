@@ -8,7 +8,8 @@ This project was designed for TypeScript studying and collects types which could
 # ToDo
 
 - PartialProperty
-- DeepRequired
+- DeepOptional
+
 
 # Table of Contents
 
@@ -28,6 +29,7 @@ This project was designed for TypeScript studying and collects types which could
 - [`DeepSnakeToCamel`](#deepsnaketocamel)
 - [`PropertyPostfix`](#propertypostfix)
 - [`PropertyPrefix`](#propertypostfix)
+- [`DeepRequired`](#deeprequired)
 
 ## Helpers
 
@@ -209,4 +211,43 @@ const cars: PropertyPostfix<Cars, 'Sold'> = {
   sedanSold: true,
   hatchbackSold: false,
 };
+```
+
+### DeepRequired
+traverse object deeply and set all properties to required
+
+```ts
+type Foo = {
+  a?: string;
+  b?: boolean;
+  c: number;
+  nested: {
+    a?: string;
+    b?: boolean;
+    c: number;
+    nested?: {
+      a?: string;
+      b?: boolean;
+      c?: number;
+    };
+  };
+};
+
+// all properties should be required
+const a: DeepRequired<Foo> = {
+  a: '1',
+  b: true,
+  c: 1,
+  nested: {
+    a: '1',
+    b: true,
+    c: 1,
+    nested: {
+      a: '1',
+      b: true,
+      c: 1,
+    },
+  },
+};
+
 ```

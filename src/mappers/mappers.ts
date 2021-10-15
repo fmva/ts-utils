@@ -40,3 +40,15 @@ export type PropertyPostfix<
 export type PropertyPrefix<TObject extends AnyObject, prefix extends string> = {
   [K in keyof TObject as `${prefix}${Capitalize<string & K>}`]: TObject[K];
 };
+
+/**
+ * DeepRequired
+ * @desc traverse object deeply and set all properties to required
+ */
+export type DeepRequired<T> = T extends Array<infer U>
+  ? U extends object
+    ? Array<DeepRequired<U>>
+    : DeepRequired<U>
+  : T extends object
+  ? { [K in keyof T]-?: DeepRequired<T[K]> }
+  : T;
