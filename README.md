@@ -176,7 +176,7 @@ const deepCamelCase: DeepSnakeToCamel<DeepSnakeType> = {
 };
 ```
 
-## PropertyPostfix<TObject, postfix>
+### `PropertyPostfix<TObject, postfix>`
 
 add postfix to properties of an original object type
 
@@ -196,7 +196,7 @@ const product: PropertyPrefix<Products, 'packed'> = {
 };
 ```
 
-## PropertyPrefix<TObject, prefix>
+### `PropertyPrefix<TObject, prefix>`
 
 add prefix to properties of an original object type
 
