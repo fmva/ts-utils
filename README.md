@@ -15,7 +15,7 @@ This project was designed for TypeScript studying and collects types which could
 
 ## Helpers
 
-- [`AnyObject`](#anyobject)
+- [`AnyObject<TValues>`](#anyobjecttvalues)
 - [`KeyValuePairs`](#keyvaluepairs)
 - [`SnakeToCamel`](#snaketocamel)
 - [`ValueOf`](#valueof)
@@ -33,7 +33,7 @@ This project was designed for TypeScript studying and collects types which could
 
 ## Helpers
 
-### `AnyObject`
+### `AnyObject<TValues>`
 
 Type represents an any object
 
