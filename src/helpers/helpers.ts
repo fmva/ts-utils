@@ -27,3 +27,8 @@ export type SnakeToCamel<S extends string> =
  * @desc extract all types from structure
  */
 export type ValueOf<T> = T[keyof T];
+
+/**
+ * Empty object
+ */
+export type EmptyObject = { [K in string | number]: never };

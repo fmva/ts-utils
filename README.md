@@ -9,7 +9,10 @@ This project was designed for TypeScript studying and collects types which could
 
 - PartialProperty<T, Path>
 - RequiredProperty<T, Path>
-- ObjectPaths<T>
+- ObjectPath<T>
+- ObjectPathValue<T, Path>
+- DeepMap
+- IsFlatObject
 
 # Table of Contents
 
@@ -19,6 +22,7 @@ This project was designed for TypeScript studying and collects types which could
 - [`KeyValuePairs<TValue>`](#keyvaluepairstvalue)
 - [`SnakeToCamel<S>`](#snaketocamels)
 - [`ValueOf<T>`](#valueoft)
+- [`EmptyObject`](#emptyobject)
 
 ## Filters
 
@@ -101,6 +105,19 @@ type Doo = {
 const a: ValueOf<Foo> = 1; // string | number | boolean
 const b: ValueOf<Boo> = true; // string | boolean
 const c: ValueOf<Doo> = '1'; // string
+```
+
+### `EmptyObject`
+
+if an object is not empty the TS compiler will back an error;
+
+```ts
+// Error. Type 'string' is not assignable to type 'never'
+const a: EmptyObject = { key: 'smt' };
+
+// correct
+const a: EmptyObject = {}
+
 ```
 
 ## Filters
