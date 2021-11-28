@@ -23,6 +23,7 @@ This project was designed for TypeScript studying and collects types which could
 - [`SnakeToCamel<S>`](#snaketocamels)
 - [`ValueOf<T>`](#valueoft)
 - [`EmptyObject`](#emptyobject)
+- [`IsTuple<T>`](#istuplet)
 
 ## Filters
 
@@ -117,6 +118,24 @@ const a: EmptyObject = { key: 'smt' };
 
 // correct
 const a: EmptyObject = {}
+```
+
+### `IsTuple<T>`
+
+Find out the array is a tuple or not;
+
+```ts
+type Foo = {
+  a: string;
+  b: number;
+  c: boolean;
+};
+
+type Tuple = ['a', 'b'];
+
+const a: IsTuple<Tuple> = true;
+const b: IsTuple<Foo[]> = false;
+const c: IsTuple<string[]> = false;
 
 ```
 

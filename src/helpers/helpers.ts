@@ -29,6 +29,15 @@ export type SnakeToCamel<S extends string> =
 export type ValueOf<T> = T[keyof T];
 
 /**
- * Empty object
+ * EmptyObject
+ * @desc Empty object
  */
 export type EmptyObject = { [K in string | number]: never };
+
+/**
+ * IsTuple
+ * @desc An array is a tuple or not
+ */
+export type IsTuple<T extends ReadonlyArray<any>> = number extends T['length']
+  ? false
+  : true;
