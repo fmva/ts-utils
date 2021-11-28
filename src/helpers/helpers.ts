@@ -1,5 +1,5 @@
 /**
- * AnyObject
+ * AnyObject<TValues>
  * @desc represent an object type
  */
 export type AnyObject<TValues = unknown> = Record<
@@ -8,13 +8,13 @@ export type AnyObject<TValues = unknown> = Record<
 >;
 
 /**
- * KeyValuePairs
+ * KeyValuePairs<TValue>
  * @desc represent an obvious object where properties are string
  */
 export type KeyValuePairs<TValue = string> = Record<string, TValue>;
 
 /**
- * SnakeToCamel
+ * SnakeToCamel<S>
  * @desc Convert string from snake to camel
  */
 export type SnakeToCamel<S extends string> =
@@ -23,7 +23,7 @@ export type SnakeToCamel<S extends string> =
     : S;
 
 /**
- * ValueOf
+ * ValueOf<T>
  * @desc extract all types from structure
  */
 export type ValueOf<T> = T[keyof T];
@@ -35,9 +35,17 @@ export type ValueOf<T> = T[keyof T];
 export type EmptyObject = { [K in string | number]: never };
 
 /**
- * IsTuple
+ * IsTuple<TArray>
  * @desc An array is a tuple or not
  */
-export type IsTuple<T extends ReadonlyArray<any>> = number extends T['length']
-  ? false
-  : true;
+export type IsTuple<TArray extends ReadonlyArray<any>> =
+  number extends TArray['length'] ? false : true;
+
+/**
+ * TupleKey<TArray>
+ * @desc get the tuple key from a tuple
+ */
+export type TupleKey<TArray extends ReadonlyArray<any>> = Exclude<
+  keyof TArray,
+  keyof any[]
+>;
