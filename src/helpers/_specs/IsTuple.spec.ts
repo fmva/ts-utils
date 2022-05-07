@@ -1,4 +1,4 @@
-import { Assert, Equal } from '../../tests-utils/utils';
+import { Assert } from '../../tests-utils/utils';
 import { IsTuple } from '../helpers';
 
 type Foo = {
@@ -10,7 +10,7 @@ type Foo = {
 type Tuple = ['a', 'b'];
 
 export type IsTupleCases = [
-  Assert<Equal<IsTuple<Tuple>, true>>,
-  Assert<Equal<IsTuple<Foo[]>, false>>,
-  Assert<Equal<IsTuple<string[]>, false>>,
+  Assert<IsTuple<Tuple>, true>,
+  Assert<IsTuple<Foo[]>, false>,
+  Assert<IsTuple<string[]>, false>,
 ];

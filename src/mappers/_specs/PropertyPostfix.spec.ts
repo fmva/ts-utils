@@ -1,4 +1,4 @@
-import { Assert, Equal } from '../../tests-utils/utils';
+import { Assert } from '../../tests-utils/utils';
 import { PropertyPostfix } from '../mappers';
 
 type Cars = {
@@ -12,8 +12,6 @@ type CarsSold = {
 };
 
 export type PropertyPostfixCases = [
-  Assert<
-    Equal<PropertyPostfix<{ foo: string }, 'Postfix'>, { fooPostfix: string }>
-  >,
-  Assert<Equal<PropertyPostfix<Cars, 'Sold'>, CarsSold>>,
+  Assert<PropertyPostfix<{ foo: string }, 'Postfix'>, { fooPostfix: string }>,
+  Assert<PropertyPostfix<Cars, 'Sold'>, CarsSold>,
 ];

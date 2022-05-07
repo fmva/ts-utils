@@ -1,4 +1,4 @@
-import { Assert, Equal } from '../../tests-utils/utils';
+import { Assert } from '../../tests-utils/utils';
 import { DeepSnakeToCamel } from '../mappers';
 
 type SnakeType = {
@@ -28,17 +28,15 @@ type DeepCamelType = {
 };
 
 export type DeepObjectSnakeToCamelCases = [
-  Assert<Equal<DeepSnakeToCamel<SnakeType>, CamelType>>,
-  Assert<Equal<DeepSnakeToCamel<DeepSnakeType>, DeepCamelType>>,
-  Assert<Equal<DeepSnakeToCamel<undefined>, undefined>>,
-  Assert<Equal<DeepSnakeToCamel<number>, number>>,
-  Assert<Equal<DeepSnakeToCamel<string>, string>>,
-  Assert<Equal<DeepSnakeToCamel<boolean>, boolean>>,
-  Assert<Equal<DeepSnakeToCamel<{ field: string }>, { field: string }>>,
+  Assert<DeepSnakeToCamel<SnakeType>, CamelType>,
+  Assert<DeepSnakeToCamel<DeepSnakeType>, DeepCamelType>,
+  Assert<DeepSnakeToCamel<undefined>, undefined>,
+  Assert<DeepSnakeToCamel<number>, number>,
+  Assert<DeepSnakeToCamel<string>, string>,
+  Assert<DeepSnakeToCamel<boolean>, boolean>,
+  Assert<DeepSnakeToCamel<{ field: string }>, { field: string }>,
   Assert<
-    Equal<
-      DeepSnakeToCamel<{ nested_array: SnakeType[] }>,
-      { nestedArray: CamelType[] }
-    >
+    DeepSnakeToCamel<{ nested_array: SnakeType[] }>,
+    { nestedArray: CamelType[] }
   >,
 ];

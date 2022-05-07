@@ -1,4 +1,4 @@
-import { Assert, Equal } from '../../tests-utils/utils';
+import { Assert } from '../../tests-utils/utils';
 import { PropertyPrefix } from '../mappers';
 
 type Products = {
@@ -14,8 +14,6 @@ type PackedProducts = {
 };
 
 export type PropertyPrefixCases = [
-  Assert<
-    Equal<PropertyPrefix<{ foo: string }, 'prefix'>, { prefixFoo: string }>
-  >,
-  Assert<Equal<PropertyPrefix<Products, 'packed'>, PackedProducts>>,
+  Assert<PropertyPrefix<{ foo: string }, 'prefix'>, { prefixFoo: string }>,
+  Assert<PropertyPrefix<Products, 'packed'>, PackedProducts>,
 ];

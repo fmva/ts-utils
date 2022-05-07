@@ -1,4 +1,4 @@
-import { Assert, Equal } from '../../tests-utils/utils';
+import { Assert } from '../../tests-utils/utils';
 import { DeepRequired } from '../mappers';
 
 type Foo = {
@@ -60,13 +60,13 @@ type DeepRequiredCoo = {
 };
 
 export type DeepRequiredCases = [
-  Assert<Equal<DeepRequired<Foo>, DeepRequiredFoo>>,
-  Assert<Equal<DeepRequired<Boo>, DeepRequiredBoo>>,
-  Assert<Equal<DeepRequired<{ a?: string }>, { a: string }>>,
-  Assert<Equal<DeepRequired<Coo>, DeepRequiredCoo>>,
-  Assert<Equal<DeepRequired<undefined>, undefined>>,
-  Assert<Equal<DeepRequired<string>, string>>,
-  Assert<Equal<DeepRequired<null>, null>>,
-  Assert<Equal<DeepRequired<DeepRequiredFoo>, DeepRequiredFoo>>,
-  Assert<Equal<DeepRequired<{ a: string }>, { a: string }>>,
+  Assert<DeepRequired<Foo>, DeepRequiredFoo>,
+  Assert<DeepRequired<Boo>, DeepRequiredBoo>,
+  Assert<DeepRequired<{ a?: string }>, { a: string }>,
+  Assert<DeepRequired<Coo>, DeepRequiredCoo>,
+  Assert<DeepRequired<undefined>, undefined>,
+  Assert<DeepRequired<string>, string>,
+  Assert<DeepRequired<null>, null>,
+  Assert<DeepRequired<DeepRequiredFoo>, DeepRequiredFoo>,
+  Assert<DeepRequired<{ a: string }>, { a: string }>,
 ];

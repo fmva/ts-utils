@@ -1,4 +1,4 @@
-import { Assert, Equal } from '../../tests-utils/utils';
+import { Assert } from '../../tests-utils/utils';
 import { DeepPartial } from '../mappers';
 
 type Foo = {
@@ -60,14 +60,14 @@ type DeepPartialCoo = {
 };
 
 export type DeepRequiredCases = [
-  Assert<Equal<DeepPartial<Foo>, DeepPartialFoo>>,
-  Assert<Equal<DeepPartial<Foo>, DeepPartialFoo>>,
-  Assert<Equal<DeepPartial<Boo>, DeepPartialBoo>>,
-  Assert<Equal<DeepPartial<{ a: string }>, { a?: string }>>,
-  Assert<Equal<DeepPartial<Coo>, DeepPartialCoo>>,
-  Assert<Equal<DeepPartial<undefined>, undefined>>,
-  Assert<Equal<DeepPartial<string>, string>>,
-  Assert<Equal<DeepPartial<null>, null>>,
-  Assert<Equal<DeepPartial<DeepPartialFoo>, DeepPartialFoo>>,
-  Assert<Equal<DeepPartial<{ a?: string }>, { a?: string }>>,
+  Assert<DeepPartial<Foo>, DeepPartialFoo>,
+  Assert<DeepPartial<Foo>, DeepPartialFoo>,
+  Assert<DeepPartial<Boo>, DeepPartialBoo>,
+  Assert<DeepPartial<{ a: string }>, { a?: string }>,
+  Assert<DeepPartial<Coo>, DeepPartialCoo>,
+  Assert<DeepPartial<undefined>, undefined>,
+  Assert<DeepPartial<string>, string>,
+  Assert<DeepPartial<null>, null>,
+  Assert<DeepPartial<DeepPartialFoo>, DeepPartialFoo>,
+  Assert<DeepPartial<{ a?: string }>, { a?: string }>,
 ];

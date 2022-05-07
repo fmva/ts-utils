@@ -1,10 +1,8 @@
-import { Assert, EqualUnions, NotEqualUnions } from '../../tests-utils/utils';
+import { Assert, AssertNever } from '../../tests-utils/utils';
 import { TupleKey } from '../helpers';
 
-type Tuple = ['a', 'b'];
-
 export type TupleKeyCases = [
-  Assert<EqualUnions<TupleKey<Tuple>, '1'>>,
-  Assert<EqualUnions<TupleKey<Tuple>, '0'>>,
-  Assert<NotEqualUnions<TupleKey<Tuple>, '3'>>,
+  Assert<TupleKey<['a', 'b']>, '0' | '1'>,
+  Assert<TupleKey<['a', 'b', 'c']>, '0' | '1' | '2'>,
+  AssertNever<TupleKey<[]>>,
 ];

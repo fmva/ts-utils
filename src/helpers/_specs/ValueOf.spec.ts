@@ -1,4 +1,4 @@
-import { Assert, Equal } from '../../tests-utils/utils';
+import { Assert } from '../../tests-utils/utils';
 import { ValueOf } from '../helpers';
 
 type Foo = {
@@ -18,7 +18,7 @@ type Doo = {
 };
 
 export type ValueOfCases = [
-  Assert<Equal<ValueOf<Foo>, string | number | boolean>>,
-  Assert<Equal<ValueOf<Boo>, string | boolean>>,
-  Assert<Equal<ValueOf<Doo>, string>>,
+  Assert<ValueOf<Foo>, string | number | boolean>,
+  Assert<ValueOf<Boo>, string | boolean>,
+  Assert<ValueOf<Doo>, string>,
 ];
