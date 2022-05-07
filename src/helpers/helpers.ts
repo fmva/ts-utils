@@ -49,3 +49,23 @@ export type TupleKey<TArray extends ReadonlyArray<any>> = Exclude<
   keyof TArray,
   keyof any[]
 >;
+
+/**
+ * PathTemplate<TPath, T>
+ * @desc template for the ObjectPath generic
+ */
+type PathTemplate<TPath extends string | number, T> = T extends object
+  ? `${TPath}` | `${TPath}.${ObjectPath<T>}`
+  : `${TPath}`;
+
+/**
+ * ObjectPath<T>
+ * @desc get all property paths from the object
+ */
+export type ObjectPath<T> = T extends ReadonlyArray<infer U>
+  ? IsTuple<T> extends true
+    ? { [P in TupleKey<T>]-?: PathTemplate<P & string, T[P]> }[TupleKey<T>]
+    : PathTemplate<number, U>
+  : T extends object
+  ? { [P in keyof T]-?: PathTemplate<P & string, T[P]> }[keyof T]
+  : never;

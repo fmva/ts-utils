@@ -25,6 +25,7 @@ This project was designed for TypeScript studying and collects types which could
 - [`EmptyObject`](#emptyobject)
 - [`IsTuple<TArray>`](#istupletarray)
 - [`TupleKey<TArray>`](#tuplekeytarray)
+- [`ObjectPath<T>`](#objectpatht)
 
 ## Filters
 
@@ -54,6 +55,39 @@ const foo: AnyObject = {
   },
 };
 ```
+
+### `ObjectPath<T>`
+
+Get all property paths from the object
+
+```ts
+type Boo = {
+  a: string;
+  b: number;
+};
+
+type Foo = {
+  a?: string;
+  b?: boolean;
+  c: number;
+  boo: Boo[];
+  nested?: {
+    a: string;
+    b: boolean;
+    c: number;
+    nested: {
+      a?: string;
+      b?: boolean;
+      c?: number;
+    };
+  };
+};
+
+const a: ObjectPath<Foo> = 'a'
+const b: ObjectPath<Foo> = 'nested.a'
+const c: ObjectPath<Foo> = 'boo.0.b'
+
+````
 
 ### `KeyValuePairs<TValue>`
 
@@ -116,7 +150,8 @@ if an object is not empty the TS compiler will back an error;
 ```ts
 // Error. Type 'string' is not assignable to type 'never'
 const a: EmptyObject = { key: 'smt' };
-
+```
+```ts
 // correct
 const a: EmptyObject = {}
 ```
@@ -148,7 +183,8 @@ type Tuple = ['a', 'b'];
 
 // error
 const a: TupleKey<Tuple> = '3';
-
+```
+```ts
 // correct
 const a: TupleKey<Tuple> = '1';
 ```
