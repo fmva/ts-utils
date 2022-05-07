@@ -8,6 +8,25 @@ export type AnyObject<TValues = unknown> = Record<
 >;
 
 /**
+ * Primitive
+ * @desc primitive types
+ */
+export type Primitive =
+  | null
+  | undefined
+  | string
+  | number
+  | boolean
+  | symbol
+  | bigint;
+
+/**
+ * ArrayKey
+ * @desc The array key type
+ */
+export type ArrayKey = number;
+
+/**
  * KeyValuePairs<TValue>
  * @desc represent an obvious object where properties are string
  */
